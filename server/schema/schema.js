@@ -14,6 +14,10 @@ const fakeBookData = [
   { _id: '1', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '1' },
   { _id: '2', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '2' },
   { _id: '3', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '3' },
+  { _id: '4', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '3' },
+  { _id: '5', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '2' },
+  { _id: '6', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '2' },
+  { _id: '7', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '3' },
 ];
 
 const fakeAuthorData = [
