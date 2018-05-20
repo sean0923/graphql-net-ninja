@@ -1,13 +1,26 @@
-const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLSchema } = require('graphql');
+const {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLID,
+  GraphQLSchema,
+  GraphQLInt,
+} = require('graphql');
 const _ = require('lodash');
 const faker = require('faker');
 
-// fake data
-const fakeData = [
+// fake data -----------------------------------------------------------------
+const fakeBookData = [
   { _id: '1', name: faker.name.firstName(), genre: faker.name.lastName() },
   { _id: '2', name: faker.name.firstName(), genre: faker.name.lastName() },
   { _id: '3', name: faker.name.firstName(), genre: faker.name.lastName() },
 ];
+
+const fakeAuthorData = [
+  { _id: '1', name: faker.name.firstName(), age: _.random(20, 90) },
+  { _id: '2', name: faker.name.firstName(), age: _.random(20, 90) },
+  { _id: '3', name: faker.name.firstName(), age: _.random(20, 90) },
+];
+// ----------------------------------------------------------------------------
 
 const BookType = new GraphQLObjectType({
   name: 'Book',
@@ -16,6 +29,15 @@ const BookType = new GraphQLObjectType({
     _id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
+  }),
+});
+
+const AuthorType = new GraphQLObjectType({
+  name: 'Author',
+  fields: () => ({
+    _id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    age: { type: GraphQLInt },
   }),
 });
 
@@ -28,7 +50,14 @@ const RootQuery = new GraphQLObjectType({
       args: { _id: { type: GraphQLID } },
       resolve(parent, args) {
         // code to get data from db and/or other source
-        return _.find(fakeData, { _id: args._id });
+        return _.find(fakeBookData, { _id: args._id });
+      },
+    },
+    author: {
+      type: AuthorType,
+      args: { _id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return _.find(fakeAuthorData, { _id: args._id });
       },
     },
   },
