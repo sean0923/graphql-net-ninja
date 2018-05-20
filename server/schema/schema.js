@@ -4,6 +4,7 @@ const {
   GraphQLID,
   GraphQLSchema,
   GraphQLInt,
+  GraphQLList
 } = require('graphql');
 
 const _ = require('lodash');
@@ -37,7 +38,6 @@ const BookType = new GraphQLObjectType({
     // 1st type relation ----------------------------------------
     author: {
       type: AuthorType,
-      args: { _id: { type: GraphQLID } },
       resolve(parent, args) {
         console.log('args: ', args);
         console.log('parent: ', parent);
@@ -54,6 +54,9 @@ const AuthorType = new GraphQLObjectType({
     _id: { type: GraphQLID },
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
+    // books: {
+    //   type: new GraphQLList(BookType),
+    // }
   }),
 });
 
