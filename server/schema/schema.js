@@ -5,6 +5,7 @@ const {
   GraphQLSchema,
   GraphQLInt,
 } = require('graphql');
+
 const _ = require('lodash');
 const faker = require('faker');
 
