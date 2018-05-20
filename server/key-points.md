@@ -10,6 +10,8 @@
 
 ## 14 GraphQL Lists
 
+- realize args is not needed for type relation
+
 - Explain why he did 
 
 # Get author's list of books

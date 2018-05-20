@@ -4,7 +4,7 @@ const {
   GraphQLID,
   GraphQLSchema,
   GraphQLInt,
-  GraphQLList
+  GraphQLList,
 } = require('graphql');
 
 const _ = require('lodash');
@@ -35,6 +35,7 @@ const BookType = new GraphQLObjectType({
     _id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
+    authorId: { type: GraphQLString },
     // 1st type relation ----------------------------------------
     author: {
       type: AuthorType,
@@ -54,9 +55,12 @@ const AuthorType = new GraphQLObjectType({
     _id: { type: GraphQLID },
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
-    // books: {
-    //   type: new GraphQLList(BookType),
-    // }
+    books: {
+      type: new GraphQLList(BookType),
+      resolve(parent, args) {
+        return _.filter(fakeBookData, book => book.authorId === parent._id);
+      },
+    },
   }),
 });
 
