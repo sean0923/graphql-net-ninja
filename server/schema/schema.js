@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLString, GraphQLSchema } = require('graphql');
+const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLSchema } = require('graphql');
 const _ = require('lodash');
 const faker = require('faker');
 
@@ -12,7 +12,8 @@ const fakeData = [
 const BookType = new GraphQLObjectType({
   name: 'Book',
   fields: () => ({
-    _id: { type: GraphQLString },
+    // _id: { type: GraphQLString },
+    _id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
   }),
@@ -23,7 +24,8 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     book: {
       type: BookType,
-      args: { _id: { type: GraphQLString } },
+      // args: { _id: { type: GraphQLString } },
+      args: { _id: { type: GraphQLID } },
       resolve(parent, args) {
         // code to get data from db and/or other source
         return _.find(fakeData, { _id: args._id });
