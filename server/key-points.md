@@ -12,7 +12,22 @@
 
 - realize args is not needed for type relation
 
-- Explain why he did 
+- Describe why fields need to be wrap by field
+
+const AuthorType = new GraphQLObjectType({
+  name: 'Author',
+  fields: () => ({
+    _id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    age: { type: GraphQLInt },
+    books: {
+      type: new GraphQLList(BookType),
+      resolve(parent, args) {
+        return _.filter(fakeBookData, book => book.authorId === parent._id);
+      },
+    },
+  }),
+});
 
 # Get author's list of books
 
