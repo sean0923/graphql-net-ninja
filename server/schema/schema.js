@@ -30,6 +30,7 @@ const BookType = new GraphQLObjectType({
     _id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
+    // 1st type relation ----------------------------------------
     author: {
       type: AuthorType,
       args: { _id: { type: GraphQLID } },
@@ -39,6 +40,7 @@ const BookType = new GraphQLObjectType({
         return _.find(fakeAuthorData, { _id: parent.authorId });
       },
     },
+    // ----------------------------------------------------------
   }),
 });
 
