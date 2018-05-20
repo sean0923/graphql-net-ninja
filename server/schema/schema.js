@@ -11,9 +11,9 @@ const faker = require('faker');
 
 // fake data -----------------------------------------------------------------
 const fakeBookData = [
-  { _id: '1', name: faker.name.firstName(), genre: faker.name.lastName() },
-  { _id: '2', name: faker.name.firstName(), genre: faker.name.lastName() },
-  { _id: '3', name: faker.name.firstName(), genre: faker.name.lastName() },
+  { _id: '1', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '1' },
+  { _id: '2', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '2' },
+  { _id: '3', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '3' },
 ];
 
 const fakeAuthorData = [
@@ -30,6 +30,15 @@ const BookType = new GraphQLObjectType({
     _id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
+    author: {
+      type: AuthorType,
+      args: { _id: { type: GraphQLID } },
+      resolve(parent, args) {
+        console.log('args: ', args);
+        console.log('parent: ', parent);
+        return _.find(fakeAuthorData, { _id: parent.authorId });
+      },
+    },
   }),
 });
 
