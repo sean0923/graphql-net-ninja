@@ -42,3 +42,10 @@ const AuthorType = new GraphQLObjectType({
 
 ## 16 Connect to MongoDB
 
+## 17 Mongoose Model
+
+- don't get confuse between graphql schema (graph) and mongoose schema
+- make models dir
+- models/book and author (make book and author models)
+
+
