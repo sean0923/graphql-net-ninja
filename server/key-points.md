@@ -48,4 +48,10 @@ const AuthorType = new GraphQLObjectType({
 - make models dir
 - models/book and author (make book and author models)
 
+## 18 Mutation
+
+- add mutation in schema.js
+- add mutation to root query
+- when we are making mutation we need to put mutation in front of {}
+- return author.save to receive author at graphiql
 
