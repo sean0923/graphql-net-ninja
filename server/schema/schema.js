@@ -10,6 +10,10 @@ const {
 const _ = require('lodash');
 const faker = require('faker');
 
+// mongoose model
+const Book = require('./models/book');
+const Author = require('./models/author');
+
 // fake data -----------------------------------------------------------------
 const fakeBookData = [
   { _id: '1', name: faker.name.firstName(), genre: faker.name.lastName(), authorId: '1' },

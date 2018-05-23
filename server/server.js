@@ -5,10 +5,6 @@ const mongoose = require('mongoose');
 // graphQL schema
 const schema = require('./schema/schema');
 
-// mongoose model
-const Book = require('./models/book');
-const Author = require('./models/author');
-
 // express app
 const app = express();
 
