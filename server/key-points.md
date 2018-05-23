@@ -39,3 +39,6 @@ const AuthorType = new GraphQLObjectType({
 
 - Q: How to get entire books and authors from root query
 - A: By setting up at root query 
+
+## 16 Connect to MongoDB
+
