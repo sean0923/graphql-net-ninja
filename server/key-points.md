@@ -35,3 +35,7 @@ const AuthorType = new GraphQLObjectType({
 2. add books under AuthorType and then set type as new graphQLList(BookType)
 3. add resolve(parent, args) just like prev lesson
 
+## 15 More on RootQueries
+
+- Q: How to get entire books and authors from root query
+- A: By setting up at root query 
