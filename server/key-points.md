@@ -58,3 +58,12 @@ const AuthorType = new GraphQLObjectType({
 ## 19 More on Mutation (addBook)
 
 - type: BookType, args: name, genre, authorId
+
+## 20 Updating the Resolver Functions (use data in mongoDB instead of fakeData)
+
+- find book's author
+- find author's books
+- find book
+- find author
+- find all books
+- find all authors
