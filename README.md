@@ -81,3 +81,8 @@ const AuthorType = new GraphQLObjectType({
 
 ## 22 ~ 23 React front-end setup
 ## 24 Add BookList component
+
+# 25 Apollo Client Setup
+
+- Just like axios help making http req apollo client help making GraphQL req
+- npm install apollo-boost react-apollo graphql-tag graphql --save
