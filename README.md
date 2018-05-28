@@ -91,4 +91,6 @@ const AuthorType = new GraphQLObjectType({
 
 - Copy paste query from graphiql
 - Allow CORS on server.js
-- Fetch data 
+- Fetch data
+
+ 
