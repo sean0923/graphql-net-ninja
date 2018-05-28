@@ -93,4 +93,6 @@ const AuthorType = new GraphQLObjectType({
 - Allow CORS on server.js
 - Fetch data
 
- 
+# 27 Rendering Data in a Component
+
+- render data 

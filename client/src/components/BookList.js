@@ -2,8 +2,6 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
-const fakeBookList = [{ name: 'book name1' }, { name: 'book name2' }];
-
 const getBooksQuery = gql`
   {
     books {
@@ -14,17 +12,19 @@ const getBooksQuery = gql`
   }
 `;
 
-const BookList = props => {
-  // console.log('props: ', props);
+const renderBookListItems = ({ data }) => {
   return (
-    <div>
-      <ul>
-        {fakeBookList.map((bookListItem, idx) => {
-          return <li key={idx}>{bookListItem.name}</li>;
-        })}
-      </ul>
-    </div>
+    <ul>
+      {data.books.map(bookListItem => {
+        return <li key={bookListItem._id}>{bookListItem.name}</li>;
+      })}
+    </ul>
   );
+};
+
+const BookList = props => {
+  if (props.data.loading) return <div>Loading ...</div>;
+  return <div>{renderBookListItems(props)}</div>;
 };
 
 export default graphql(getBooksQuery)(BookList);
