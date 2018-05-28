@@ -67,3 +67,9 @@ const AuthorType = new GraphQLObjectType({
 - find author
 - find all books
 - find all authors
+
+## 21  GraphQL NonNull (specify thing should not be null)
+
+- We don't want author to be saved without age or name
+- GraphQLNonNull from graphql
+- What ever you want to be not null surround with new GraphQLNonNull()
