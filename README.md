@@ -86,3 +86,9 @@ const AuthorType = new GraphQLObjectType({
 
 - Just like axios help making http req apollo client help making GraphQL req
 - npm install apollo-boost react-apollo graphql-tag graphql --save
+
+# 26 Making Queries from React
+
+- Copy paste query from graphiql
+- Allow CORS on server.js
+- Fetch data 
