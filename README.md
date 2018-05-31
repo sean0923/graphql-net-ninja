@@ -99,4 +99,4 @@ const AuthorType = new GraphQLObjectType({
 
 # 28 AddBook Component
 
-- make AddBook Component 
+- render AddBookForm Component

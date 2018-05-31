@@ -1,6 +1,30 @@
 import React, { Component } from 'react';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const getAuthorsQuery = gql`
+  {
+    authors {
+      _id
+      name
+      age
+    }
+  }
+`;
 
 class AddBookForm extends Component {
+  displayAuthors() {
+    const { data } = this.props;
+    if (data.loading) return null;
+    return data.authors.map(author => {
+      return (
+        <option key={author._id} value={author._id}>
+          {author.name}
+        </option>
+      );
+    });
+  }
+
   render() {
     return (
       <form>
@@ -16,11 +40,7 @@ class AddBookForm extends Component {
 
         <div>
           <label>author:</label>
-          <select>
-            <option value="aaa">aaa</option>
-            <option value="bbb">bbb</option>
-            <option value="ccc">ccc</option>
-          </select>
+          <select>{this.displayAuthors()}</select>
         </div>
 
         <button>+</button>
@@ -29,4 +49,4 @@ class AddBookForm extends Component {
   }
 }
 
-export default AddBookForm;
+export default graphql(getAuthorsQuery)(AddBookForm);
