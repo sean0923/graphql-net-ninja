@@ -2,15 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-const getAuthorsQuery = gql`
-  {
-    authors {
-      _id
-      name
-      age
-    }
-  }
-`;
+import { getAuthorsQuery } from '../queries/queries';
 
 class AddBookForm extends Component {
   displayAuthors() {

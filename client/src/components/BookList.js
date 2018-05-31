@@ -2,15 +2,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
-const getBooksQuery = gql`
-  {
-    books {
-      _id
-      name
-      genre
-    }
-  }
-`;
+import { getBooksQuery } from '../queries/queries';
 
 const renderBookListItems = ({ data }) => {
   return (
