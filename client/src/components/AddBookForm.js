@@ -15,7 +15,11 @@ const getAuthorsQuery = gql`
 class AddBookForm extends Component {
   displayAuthors() {
     const { data } = this.props;
-    if (data.loading) return null;
+
+    if (data.loading) {
+      return <option disabled> Loading data ...</option>;
+    }
+
     return data.authors.map(author => {
       return (
         <option key={author._id} value={author._id}>

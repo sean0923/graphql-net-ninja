@@ -100,3 +100,8 @@ const AuthorType = new GraphQLObjectType({
 # 28 AddBook Component
 
 - render AddBookForm Component
+- Display authors in select options html tag
+
+# 29 External Query File
+
+- Make external queries file so that queries can be imported
