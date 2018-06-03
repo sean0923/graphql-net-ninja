@@ -137,3 +137,5 @@ export default compose(
 - pass args in front-end as variables({...})
 - mutation will happen but update shows up only when refreshed
 
+# 33 Re-fetching Queries
+- after addBook mutation, refetch book data

@@ -38,9 +38,9 @@ const BookType = new GraphQLObjectType({
   fields: () => ({
     // _id: { type: GraphQLString },
     _id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    genre: { type: GraphQLString },
-    authorId: { type: GraphQLString },
+    name: { type: new GraphQLNonNull(GraphQLString) },
+    genre: { type: new GraphQLNonNull(GraphQLString) },
+    authorId: { type: new GraphQLNonNull(GraphQLString) },
     // 1st type relation ----------------------------------------
     author: {
       type: AuthorType,
