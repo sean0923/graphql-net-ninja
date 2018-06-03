@@ -37,6 +37,13 @@ class AddBookForm extends Component {
         onSubmit={e => {
           e.preventDefault();
           console.log('this.state: ', this.state);
+          this.props.addBookMutation({
+            variables: {
+              name: this.state.name,
+              genre: this.state.genre,
+              authorId: this.state.authorId,
+            },
+          });
         }}
       >
         <div>

@@ -118,7 +118,7 @@ export default compose(
 
 # 32 Query Variables
 - on mutation files, next to mutation add dollar sign and type
-  mutation($name: String!, authorId: ID!, $genre: $String!) {
+  mutation($name: String!, $authorId: ID!, $genre: String!) {
     addBook(name: $name, authorId: $authorId, genre: $genre) {
       name
       genre
@@ -126,6 +126,14 @@ export default compose(
   }
 
 - then argument can take those variables
+  this.props.addBookMutation({
+    variables: {
+      name: this.state.name,
+      genre: this.state.genre,
+      authorId: this.state.authorId,
+    },
+  });
+
 - pass args in front-end as variables({...})
 - mutation will happen but update shows up only when refreshed
 
