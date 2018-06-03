@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
 
 import { getAuthorsQuery } from '../queries/queries';
+import { addBookMutation } from '../queries/mutations';
 
 class AddBookForm extends Component {
   constructor(props) {
@@ -14,13 +15,14 @@ class AddBookForm extends Component {
   }
 
   displayAuthors() {
-    const { data } = this.props;
+    // this.props
+    const { getAuthorsQuery } = this.props;
 
-    if (data.loading) {
+    if (getAuthorsQuery.loading) {
       return <option disabled> Loading data ...</option>;
     }
 
-    return data.authors.map(author => {
+    return getAuthorsQuery.authors.map(author => {
       return (
         <option key={author._id} value={author._id}>
           {author.name}
@@ -61,4 +63,8 @@ class AddBookForm extends Component {
   }
 }
 
-export default graphql(getAuthorsQuery)(AddBookForm);
+// export default graphql(getAuthorsQuery)(AddBookForm);
+export default compose(
+  graphql(getAuthorsQuery, { name: 'getAuthorsQuery' }),
+  graphql(addBookMutation, { name: 'addBookMutation' })
+)(AddBookForm);

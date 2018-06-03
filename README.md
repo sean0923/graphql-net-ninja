@@ -105,3 +105,13 @@ const AuthorType = new GraphQLObjectType({
 # 29 External Query File
 
 - Make external queries file so that queries can be imported
+
+# 31 Composing Queries
+
+- add "addBook" mutation
+- import { compose } from react-apollo
+- export default compose(
+  graphql(getAuthorsQuery, { name: 'getAuthorsQuery' }),
+  graphql(addBookMutation, { name: 'addBookMutation' })
+)(AddBookForm);
+- then there will be no 'data' prop from graphql
