@@ -110,8 +110,22 @@ const AuthorType = new GraphQLObjectType({
 
 - add "addBook" mutation
 - import { compose } from react-apollo
-- export default compose(
+export default compose(
   graphql(getAuthorsQuery, { name: 'getAuthorsQuery' }),
   graphql(addBookMutation, { name: 'addBookMutation' })
 )(AddBookForm);
 - then there will be no 'data' prop from graphql
+
+# 32 Query Variables
+- on mutation files, next to mutation add dollar sign and type
+  mutation($name: String!, authorId: ID!, $genre: $String!) {
+    addBook(name: $name, authorId: $authorId, genre: $genre) {
+      name
+      genre
+    }
+  }
+
+- then argument can take those variables
+- pass args in front-end as variables({...})
+- mutation will happen but update shows up only when refreshed
+
